@@ -1,0 +1,444 @@
+@import"__variable";
+@import "__default";
+
+@mixin radius($value) {
+    border-radius: $value;
+}
+@mixin shadow($X,$Y,$blur)
+ {
+    -webkit-box-shadow: $X $Y $blur #3333335e;
+    box-shadow: $X $Y $blur #3333335e;
+}
+
+
+%transition{
+    -webkit-transition: all 0.7s ease;
+    -o-transition: all 0.7s ease ;
+     transition: all 0.7s ease ; 
+}
+
+%btn{
+    font-size: 19px;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    padding: 7px 25px;
+    @extend %transition;
+}
+
+header{
+    background-color: $bg_Color;
+    .navbar-brand{
+        img{
+            width: 150px;
+        }
+    }
+
+    .navbar-nav{
+        .nav-item{
+            .nav-link{
+               color: $primary_Color;
+               font-size: 19px;
+               letter-spacing: 1px;               
+               @include radius(30px);
+               padding: 7px 25px;
+               @extend %transition;
+               &:hover{
+                background-color: $secondary_Color;
+                color: #fff ;
+               }
+            }
+            &:last-child{
+                .nav-link{
+                    background-color: $secondary_Color !important;
+                    color: #fff !important;
+                }
+            }
+        }
+       
+    }
+
+    .row{
+      h4{
+          color: red;
+          font-size: 19px;
+      }
+      h1{
+         color: $primary_Color;
+         
+    font-size: 52px !important;
+    font-weight: 700;
+    width: 400px;
+    line-height: 1.4;
+          span{
+            color: $secondary_Color !important;
+           
+          }
+      }
+      p{
+          color: $primary_Color;
+          font-size: 20px;
+          line-height: 1.8;
+          opacity: 0.7;
+
+      }
+     
+    }
+}
+
+.btn-custom{
+ background-color: $secondary_Color;
+ color: #fff;
+ @extend %btn;
+ margin: 14px 0;
+ border: 1px solid $secondary_Color;
+ 
+ &:hover{
+    background-color: transparent;
+    color: $secondary_Color ;
+   }
+}
+
+.books-section{
+    padding: 40px 0;
+    .book{
+        background-color: $bg_Color;
+        text-align: center;
+        padding: 34px 20px;
+        border-radius: 10px;
+        @extend %transition;
+        &:hover{
+            background-color: #fff;
+            @include shadow(0px,20px,30px);
+            // box-shadow: 0px 20px 30px #3333335e;
+        }
+        img{
+            height: 70px;
+        }
+        h2{
+            font-size: 26px;
+            font-weight: 700;
+            margin: 10px 0 0;
+        }
+        p{
+            color: $primary_Color;
+          font-size: 20px;
+          line-height: 1.8;
+          opacity: 0.7;
+        }
+
+    }
+}
+
+.heading{
+    text-align: center;
+    padding: 50px 0;
+    h2{
+       font-size: 50px;
+       color: #413960;
+       font-weight: 700;
+    }
+}
+.coursse-section{
+      .card{
+          @include radius(10px);
+          @include shadow(0px,20px,30px);
+        //   box-shadow: 0px 20px 30px #3333335e;
+          border: 0;
+          
+          .card-body{
+            
+              img{}
+              .card-title{
+                margin: 10px 0;
+                font-size: 20px;
+              }
+              .card-text{
+                color: $primary_Color;
+                font-size: 20px;
+                line-height: 1.8;
+                opacity: 0.7;
+                margin-bottom: 0px;
+              }
+              .nav{
+                  align-items: center;
+                  li{
+                      img{
+                       width: 20px;
+                      }
+                      span{
+                        font-size: 14px;
+                        font-weight: 600;
+                      }
+                  }
+              }
+          }
+      }
+}
+
+.testimonial-section{
+    padding: 50px 0;
+    img{}
+    p{
+        color: $primary_Color;
+        font-size: 20px;
+        line-height: 1.5;
+        opacity: 0.7;
+    }
+}
+
+footer{
+    background-color: #282531;
+    padding: 50px 0 0;
+    color: #fff;
+    p{
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.5;
+        
+    }
+    h3{}
+    ul{
+        li{
+            a{
+                color: rgb(255, 255, 255);
+                text-decoration: none;
+                background-color: rgba(0, 0, 0, 0);
+                font-size: 14px;
+                padding: 5px 0;
+                display: block;
+                @extend %transition;
+                &:hover{
+                    opacity: 0.7;
+                    color: #fff;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    .copyright{
+        padding: 30px;
+        text-align: center;
+        p{
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 0;
+            a{
+                color: $secondary_Color;
+                font-weight: 800;
+            }
+        }
+    }
+}
+
+
+// media query
+@media(max-width: 1199px)
+{
+    header .row h1 {
+        color: rgb(0, 0, 0);
+        font-size: 50px !important;
+    }
+    .books-section .book h2 {
+        font-size: 19px;
+    }
+    .books-section .book p {
+        color: rgb(0, 0, 0);
+        font-size: 15px;
+    }
+    .coursse-section .btn-custom {
+        background-color: rgb(33, 181, 115);
+        color: rgb(255, 255, 255);
+        margin: 11px 0;
+        border: 1px solid rgb(33, 181, 115);
+        font-size: 16px;
+        padding: 5px 16px;
+        &:hover{
+            background-color: transparent;
+            color: $secondary_Color ;
+           }
+    }
+}
+@media(max-width: 991px)
+{
+    .navbar-nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: row;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        justify-content: f;
+        justify-content: center;
+    }
+    .coursse-section .btn-custom {
+        background-color: rgb(33, 181, 115);
+        color: rgb(255, 255, 255);
+        margin: 11px 0;
+        border: 1px solid rgb(33, 181, 115);
+        font-size: 12px;
+        padding: 5px 16px;
+        &:hover{
+            background-color: transparent;
+            color: $secondary_Color ;
+           }
+    }
+
+    header .row h1 {
+        
+            color: rgb(0, 0, 0);
+            font-size: 40px !important;
+            max-width: 350px;
+    }
+    header .row p {
+        color: rgb(0, 0, 0);
+        font-size: 17px;
+        line-height: 1.5;
+        opacity: 0.7;
+    }
+    .books-section .book img {
+        height: 57px;
+    }
+    .books-section .book h2 {
+        font-size: 15px;
+    }
+    .books-section .book p {
+        color: rgb(0, 0, 0);
+        font-size: 11px;
+    }
+
+    .coursse-section .card-title {
+        margin: 5px 0 !important;
+        font-size: 15px !important;
+    }
+    .coursse-section .card-body {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 10px;
+    }
+    .coursse-section .card .card-body .card-text {
+        color: rgb(0, 0, 0);
+        font-size: 15px;
+        line-height: 1.8;
+        opacity: 0.7;
+        margin-bottom: 0px;
+    }
+    .coursse-section .card .card-body .nav li:last-child {
+        display: none;
+    }
+
+    footer p {
+        color: rgb(255, 255, 255);
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    footer h3{
+        font-size: 19px;
+    }
+}
+@media(max-width: 767px)
+{
+    header .navbar-nav .nav-item .nav-link {
+        color: rgb(0, 0, 0);
+        font-size: 15px;
+        letter-spacing: 1px;
+        border-radius: 30px;
+        padding: 8px 18px;
+    }
+    header .row{
+        text-align: center !important;
+        padding-top: 10px !important;
+    }
+    header .row h1 {
+        color: rgb(0, 0, 0);
+        font-size: 25px !important;
+        width: 500px;
+        max-width: 100%
+    }
+    header .row p {
+        color: rgb(0, 0, 0);
+        font-size: 13px;
+        line-height: 1.5;
+        opacity: 0.7;
+    }
+    header .col-md img{
+        max-width: 350px;
+        padding-top: 11px;
+    }
+    .btn-custom{
+        font-size: 13px;
+    }
+    .book{
+        margin-bottom: 15px;
+    }
+    .coursse-section .card {
+        border-radius: 10px;
+        -webkit-box-shadow: 0px 20px 30px #3333335e;
+        box-shadow: 0px 20px 30px #3333335e;
+        border: 0;
+        margin-bottom: 30px;
+    }
+    .testimonial-section p {
+        color: rgb(0, 0, 0);
+        font-size: 15px;
+        line-height: 1.5;
+        opacity: 0.7;
+    }
+
+    footer h3 {
+        font-size: 21px;
+    }
+}
+@media(max-width: 575px)
+{
+    .navbar-nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        justify-content: f;
+        /* justify-content: center; */
+        align-items: center;
+    }
+
+    .coursse-section .card-title {
+        margin: 5px 0 !important;
+        font-size: 25px !important;
+    }
+    .coursse-section .card .card-body .card-text {
+        color: rgb(0, 0, 0);
+        font-size: 19px;
+        line-height: 1.8;
+        opacity: 0.7;
+        margin-bottom: 0px;
+    }
+
+    .coursse-section .btn-custom {
+        background-color: rgb(33, 181, 115);
+        color: rgb(255, 255, 255);
+        margin: 11px 0;
+        border: 1px solid rgb(33, 181, 115);
+        font-size: 20px;
+        padding: 5px 15px;
+    }
+    .coursse-section .card .card-body .nav li:last-child {
+        display: block;
+    }
+    .testimonial-section p{
+        text-align: center;
+        padding-top: 16px;
+    } 
+
+    .heading {
+        text-align: center;
+        padding: 16px;
+    }
+    footer{
+        text-align: center;
+    }
+}
